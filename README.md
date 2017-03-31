@@ -95,8 +95,8 @@ This starter kit splits React and React DOM into the `vendor` chunk for you. Bef
 
 ````json
 {
-  "config": {
-    "neutrino": {
+  "neutrino": {
+    "config": {
       "entry": {
         "vendor": [
           "react",
@@ -121,9 +121,11 @@ _Example: Change the application mount ID from "root" to "app":_
 
 ```json
 {
-  "config": {
-    "html": {
-      "appMountId": "app"
+  "neutrino": {
+    "options": {
+      "html": {
+        "appMountId": "app"
+      }
     }
   }
 }
