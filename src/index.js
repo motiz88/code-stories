@@ -9,7 +9,7 @@ const load = () => render((
   </AppContainer>
 ), document.getElementById('root'));
 
-// This is needed for hot-module-replacement
+// This is needed for Hot Module Replacement
 if (module.hot) {
   module.hot.accept('./App', load);
 }

@@ -2,8 +2,8 @@
   "version": "1.0.0",
   "private": true,
   "description": "Get started with React!",
-  "engines" : {
-    "node" : ">=6.9"
+  "engines": {
+    "node": ">=6.9"
   },
   "keywords": [
     "neutrino",
@@ -11,19 +11,19 @@
     "starter",
     "webpack"
   ],
-  "config": {
-    "presets": [
-      "neutrino-preset-airbnb-base",
-      "neutrino-preset-react"
-    ],
-    "neutrino": {
+  "neutrino": {
+    "config": {
       "entry": {
         "vendor": [
           "react",
           "react-dom"
         ]
       }
-    }
+    },
+    "use": [
+      "neutrino-preset-airbnb-base",
+      "neutrino-preset-react"
+    ]
   },
   "scripts": {
     "start": "neutrino start",
@@ -32,13 +32,13 @@
   "author": "Hassan Ali <helfi92@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "neutrino": "^4.2.1",
-    "neutrino-preset-airbnb-base": "^4.0.1",
-    "neutrino-preset-react": "^4.2.2"
+    "neutrino": "^5.1.1",
+    "neutrino-preset-airbnb-base": "^5.1.0",
+    "neutrino-preset-react": "^5.1.1"
   },
   "dependencies": {
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-hot-loader": "next"
+    "react-hot-loader": "3.0.0-beta.6"
   }
 }
