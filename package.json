@@ -11,20 +11,6 @@
     "starter",
     "webpack"
   ],
-  "neutrino": {
-    "config": {
-      "entry": {
-        "vendor": [
-          "react",
-          "react-dom"
-        ]
-      }
-    },
-    "use": [
-      "neutrino-preset-airbnb-base",
-      "neutrino-preset-react"
-    ]
-  },
   "scripts": {
     "start": "neutrino start",
     "build": "neutrino build"
@@ -32,13 +18,12 @@
   "author": "Hassan Ali <helfi92@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "neutrino": "^5.1.1",
-    "neutrino-preset-airbnb-base": "^5.1.0",
-    "neutrino-preset-react": "^5.1.1"
+    "neutrino": "^6.1.1",
+    "neutrino-preset-react": "^6.1.1"
   },
   "dependencies": {
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-hot-loader": "3.0.0-beta.6"
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-hot-loader": "3.0.0-beta.7"
   }
 }
