@@ -17,11 +17,6 @@ Create React apps with zero initial configuration. `react-starter` is built usin
   - Hot Module Replacement support
   - Production-optimized bundles with Babili minification and easy chunking
   - Easily extensible to customize your project as needed
-- Extends from [neutrino-preset-airbnb-base](https://neutrino.js.org/presets/neutrino-preset-airbnb-base/)
-  - Zero upfront configuration necessary to start linting your project
-  - Modern Babel knowledge supporting ES modules, JSX, Web and Node.js apps
-  - Highly visible during development, fails compilation when building for production
-  - Easily extensible to customize your project as needed
 
 ## Requirements
 
@@ -60,95 +55,61 @@ To get you started fork and clone the `react-starter` repository and install the
 
 ```bash
 ❯ yarn build
-clean-webpack-plugin: /react/build has been removed.
-Build completed in 7.646s
-
-Hash: 284a1593931a152b5ca3
-Version: webpack 2.2.1
-Time: 7653ms
-                                  Asset       Size  Chunks             Chunk Names
-  vendor.5420d264defb1f585e8c.bundle.js     143 kB    0, 2  [emitted]  vendor
-   index.73592a94bf864288fed6.bundle.js    7.08 kB    1, 2  [emitted]  index
-manifest.6a4a611c5987c206c212.bundle.js    1.44 kB       2  [emitted]  manifest
-                             index.html  866 bytes          [emitted]
-                                App.css   26 bytes          [emitted]
-✨  Done in 8.72s.
+✔ Building project completed
+Hash: a3a9a0f61ddbfe6d0df1
+Version: webpack 2.6.1
+Time: 10664ms
+                           Asset       Size    Chunks             Chunk Names
+   index.f4accb410f193a07d59b.js    6.72 kB     index  [emitted]  index
+polyfill.2f048c34ff815def7987.js    49.2 kB  polyfill  [emitted]  polyfill
+ runtime.657c5e7df3c8dd071e60.js    1.55 kB   runtime  [emitted]  runtime
+  vendor.6346e2d5798e9a77c2f0.js     180 kB    vendor  [emitted]  vendor
+                      index.html  926 bytes            [emitted]
+✨  Done in 12.35s.
 ```
 
 ## Running Tests
 
 In order to keep this starter kit minimalist, `react-starter` has no test runner configured, however adding one is incredible easy with Neutrino. Refer to the [relevant section on building and running tests](https://neutrino.js.org/usage.html#building-and-running-tests). 
 
-## Customizing
+## Preset options
 
-To override the build configuration, start with the documentation on [customization](https://neutrino.js.org/customization/). `neutrino-preset-react` does not use any additional named rules, loaders, or plugins that aren't already in use by the Web preset. See the [Web documentation customization](https://neutrino.js.org/presets/neutrino-preset-web/#customizing) for preset-specific configuration to override.
+You can provide custom options and have them merged with this preset's default options to easily affect how this preset builds. You can modify React preset settings from `.neutrinorc.js` by overriding with an options object. Use an array pair instead of a string to supply these options in `.neutrinorc.js`. See the [Web documentation](https://neutrino.js.org/presets/neutrino-preset-web/#preset-options) for specific options you can override with this object.
 
-### Simple customization
+_Example: Change the application mount ID from "root" to "app" and change the page title:_
 
-By following the [customization guide](https://neutrino.js.org/customization/simple.html) and knowing the rule, loader, and plugin IDs above, you can override and augment the build directly from `package.json`.
-
-#### Vendoring
-
-To achieve long term caching benefits, you can make use of code splitting. Neutrino exposes a `vendor` entry point in `package.json` where third party libraries can be split into a chunk separate from your application code. 
-
-This starter kit splits React and React DOM into the `vendor` chunk for you. Before going to production, it is recommended to push the rest of your dependencies to `vendor`.
-
-````json
-{
-  "neutrino": {
-    "config": {
-      "entry": {
-        "vendor": [
-          "react",
-          "react-dom"
-        ]
+```javascript
+module.exports = {
+  use: [
+    ['neutrino-preset-react', {
+      html: {
+        title: 'Epic React App',
+        appMountId: 'app'
       }
-    }
-  },
-  "dependencies": {
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
-  }
-}
-````
-
-#### HTML files
-
-If you wish to override how HTML files are created for your React app, refer to the [relevant section on
-neutrino-preset-web](https://neutrino.js.org/presets/neutrino-preset-web/#html-files).
-
-_Example: Change the application mount ID from "root" to "app":_
-
-```json
-{
-  "neutrino": {
-    "options": {
-      "html": {
-        "appMountId": "app"
-      }
-    }
-  }
-}
+    }]
+  ]
+};
 ```
 
-### Advanced configuration
+## Customizing
 
-By following the [customization guide](https://neutrino.js.org/customization/advanced.html) and knowing the rule, loader, and plugin IDs from
-neutrino-preset-web, you can override and augment the build by creating a JS module which overrides the config.
+By following the [customization guide](https://neutrino.js.org/customization/) and knowing the rule, loader, and plugin IDs above, you can override and augment the build by by providing a function to your `.neutrinorc.js` use array. You can also make these changes from the Neutrino API in custom middleware.
 
-#### Vendoring
+### Vendoring
 
-By defining an entry point named `vendor` you can split out external dependencies into a chunk separate
-from your application code.
+By defining an entry point named `vendor` you can split out external dependencies into a chunk separate from your application code.
 
 _Example: Put React and React DOM into a separate "vendor" chunk:_
 
 ```js
-module.exports = neutrino => {
-  neutrino.config
-    .entry('vendor')
-      .add('react')
-      .add('react-dom');
+module.exports = {
+  use: [
+    'neutrino-preset-react',
+    (neutrino) => neutrino.config
+      .entry('vendor')
+        .add('react')
+        .add('react-dom')
+  ]
 };
 ```
 
