@@ -8,13 +8,25 @@
   "keywords": ["neutrino", "react", "starter", "webpack"],
   "scripts": {
     "start": "neutrino start",
-    "build": "neutrino build"
+    "build": "neutrino build",
+    "precommit": "lint-staged",
+    "lint": "eslint **/*.js",
+    "lint:fix": "eslint --fix **/*.js"
   },
   "author": "Hassan Ali <helfi92@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "eslint": "^4.3.0",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint-plugin-prettier": "^2.1.2",
+    "eslint-plugin-react": "^7.1.0",
+    "git-exec-and-restage": "^1.0.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.0.2",
     "neutrino": "^6.1.1",
-    "neutrino-preset-react": "^6.1.1"
+    "neutrino-preset-react": "^6.1.1",
+    "prettier": "^1.5.3"
   },
   "dependencies": {
     "react": "^15.6.1",
