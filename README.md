@@ -1,5 +1,7 @@
 # React Starter
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/motiz88/code-stories.svg)](https://greenkeeper.io/)
+
 Create React apps with zero initial configuration. `react-starter` is built using [Neutrino](https://github.com/mozilla-neutrino/neutrino-dev) to harness the power of Webpack with the simplicity of [presets](https://neutrino.js.org/presets/). 
  
 ## Features
