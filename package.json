@@ -5,12 +5,7 @@
   "engines": {
     "node": ">=6.9"
   },
-  "keywords": [
-    "neutrino",
-    "react",
-    "starter",
-    "webpack"
-  ],
+  "keywords": ["neutrino", "react", "starter", "webpack"],
   "scripts": {
     "start": "neutrino start",
     "build": "neutrino build"
